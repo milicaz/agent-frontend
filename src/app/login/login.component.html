@@ -1,0 +1,32 @@
+<title>Login</title>
+
+<body>
+    <header>
+        <p>Login</p>
+    </header>
+    <div class="container" id="field">
+        <form method="post" class="loginForm" (submit)="loginUser()">
+            <div class="form-group row">
+                <div class="col-xs-8">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <label for="username">Username:</label>
+                    <input required type="username" [(ngModel)]="korisnik.username" #username="ngModel" class="form-control"
+                        id="username" placeholder="Enter username" name="username">
+                    <div class="alert alert-danger" *ngIf="username.touched"> Username je obavezno polje! </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-8">
+                    <i class="glyphicon glyphicon-eye-close"></i>
+                    <label for="pwd">Password:</label>
+                    <input required type="password" [(ngModel)]="korisnik.password" #password="ngModel" class="form-control"
+                        id="password" placeholder="Enter password" name="password">
+                    <div class="alert alert-danger" *ngIf="!password.valid && password.touched"> Password je obavezno polje!
+                    </div>
+                    <div class="alert error" [innerHTML]="htmlString"></div>
+                </div>
+            </div>
+            <button type="submit" id="confirmBtn" class="btn btn-default btn-lg">Log in</button>
+        </form>
+    </div>
+</body>
